@@ -1,9 +1,15 @@
 /*SETTING BACKGROUND*/ 
 
 
-.jumbo {
+#jumbo {
     background-color: #00f7ff;
 }
 
 
 
+#map{
+    margin: auto;
+    width: 50%;
+    height: 50%;
+
+}
