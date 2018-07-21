@@ -1,0 +1,16 @@
+/*SETTING BACKGROUND*/ 
+
+
+#jumbo {
+    background-color: #00f7ff;
+}
+
+
+
+#map{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}
