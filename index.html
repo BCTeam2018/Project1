@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>What to Do?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+        
 </head>
 
 <body>
@@ -37,7 +36,6 @@
             </div>
         </div>
         <button type="button" class="btn btn-danger">Submit</button>
-
 
     </div>
     <br>
@@ -72,14 +70,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="map">
-                    <img src="https://www.appelsiini.net/assets/2008/5/26/tartu.png" alt="map image">
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcR_W7jyDowaUcqrhBeW43FkYAxMkSUeU&libraries=places&callback=initMap"
+                        ></script>
                 </div>
             </div>
         </div>
 
     </div>
-
-    <script src="assets/javascript/logic.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./assets/javascript/logic.js"></script>
 </body>
-
 </html>
