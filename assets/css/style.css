@@ -1,12 +1,22 @@
 /*SETTING BACKGROUND*/ 
 
+body {
+    background-image: url("../images/1358814.gif");
+    
+
+
+
+}
+
+
 #jumbo {
-    background-color: black; 
-    border-color: #00f7ff;
+    
+  
     font-family: 'Kaushan Script', cursive; 
     color:  #00f7ff;
     text-shadow: 2px 2px hsl(327, 100%, 50%);
     font-size: 100px;
+    background: none;
 }
   
 #h1{
@@ -32,10 +42,4 @@
     width: 50%;
 }
 
-body {
-    background-image: url("../images/darkness/darkness.png");
-
-
-
-}
 
