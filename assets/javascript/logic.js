@@ -38,3 +38,19 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
+
+
+$("button").on("click", function() {
+  var city = $(this).attr("data-name");
+  var proxy = "https://cors-anywhere.herokuapp.com/";
+  var queryURL =
+  "http://austin.eventful.com/json/events?q=music&app_key=xDx7HLFpRJgTBLJL";
+  
+  
+  $.ajax({
+  url: proxy + queryURL,
+  method: "GET"
+  }).done(function(response) {
+  console.log(response);
+  });
+  })
