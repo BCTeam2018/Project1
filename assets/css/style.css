@@ -5,7 +5,7 @@
     border-color: #00f7ff;
     font-family: 'Kaushan Script', cursive; 
     color:  #00f7ff;
-    text-shadow: 2px 2px #ff008c;
+    text-shadow: 2px 2px hsl(327, 100%, 50%);
     font-size: 100px;
 }
   
@@ -32,5 +32,10 @@
     width: 50%;
 }
 
+body {
+    background-image: url("../images/stripes-light/stripes-light.png");
 
+
+
+}
 
