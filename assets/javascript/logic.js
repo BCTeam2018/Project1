@@ -2,11 +2,10 @@
 $("button").on("click", function() {
     //var userEvent = $(this).attr("what");
     //var userLocation = $(this).attr("where");
-    var proxy = "https://cors-anywhere.herokuapp.com/";
-    var queryURL = "http://austin.eventful.com/json/events?&l=Austin&app_key=xDx7HLFpRJgTBLJL";
-   var queryURLAustin = "http://api.eventful.com/json/events/search?location=Austin&date=Future&app_key=xDx7HLFpRJgTBLJL"
+     var proxy = "https://cors-anywhere.herokuapp.com/";
+     var queryURL = "http://api.eventful.com/json/events/search?location=Austin&date=Future&app_key=xDx7HLFpRJgTBLJL"
      $.ajax({
-    url: proxy + queryURLAustin,
+    url: proxy + queryURL,
     method: "GET"
     })
   .done(function(response) {
