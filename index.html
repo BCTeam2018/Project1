@@ -1,34 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>What to Do?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <title>Geolocation</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-        #map {
-            height: 100%;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
 </head>
-<body>
-    <button>Take me somewhere!</button>
-    <div id="map"></div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcR_W7jyDowaUcqrhBeW43FkYAxMkSUeU&libraries=places&callback=initMap"
-        async defer>
-        </script>
-    <script src="./assets/javascript/logic.js"></script>
-    
 
+<body>
+    <div class="jumbotron" id="jumbo">
+        <p class="text-center" id="h1">What's Appening?</p>
+        <p class="text-center" id="h2">Oh the places we can go!</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="input-group mb-3" id="city-input">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">City</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group mb-3" id="keyword-input">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Keyword</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+        <button type="button" class="btn btn-danger" id="submit-btn">Submit</button>
+
+
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">The Spots</h3>
+                        <table class="table table-sm table-hover" id='events-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Phone Number</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Rating</th>
+                                    <th scope="col">Total Billed ($)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map">
+                    <img src="https://www.appelsiini.net/assets/2008/5/26/tartu.png" alt="map image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+       Project 1 Best Group Ever
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+
+    <script src="assets/javascript/logic.js"></script>
 </body>
+
+</html>
 </html>
