@@ -1,22 +1,40 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDEhMTsOkTgVKsLA5Zmp5R4ZVaIzllYJnU",
+  authDomain: "project1-6d6a1.firebaseapp.com",
+  databaseURL: "https://project1-6d6a1.firebaseio.com",
+  projectId: "project1-6d6a1",
+  storageBucket: "project1-6d6a1.appspot.com",
+  messagingSenderId: "503406212698"
+};
+firebase.initializeApp(config);
 
-// Setting global variables for google maps to use
+
+// Initializing global variables
 var eventLoc = "";
 var eventLat = 30.2672;
 var eventLon = -97.7431;
+var eventTitle = "";
+var eventVenue = "";
+var eventTime = "";
+var events = "";
 
+// User input variables
 var eventCity = "";
 var eventKeyword = "";
 
-var eventTitle = "";
-
-var eventVenue;
 
 
+
+// Button event for searching for events
 $("button").on("click", async function () {
-  // Capturing using input from 
+  event.preventDefault();
+
+  // Capturing using input from fields
   eventCity = $("#city-input").val().trim();
   eventKeyword = $("#keyword-input").val().trim();
 
+  // Setup AJAX call by defining parameters for proxy URL and Eventful API. Proxy handles CORS issue.
   var proxy = "https://cors-anywhere.herokuapp.com/";
   var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL"+ "&q=" + eventKeyword + "&l=" + eventCity  + "&page_size=10";
   console.log(queryURL);
@@ -25,16 +43,27 @@ $("button").on("click", async function () {
       url: proxy + queryURL,
       method: "GET"
     })
-    .then(function (response) {
-
+    .then(function(response) {
       let newResponse = JSON.parse(response);
+      
+      // Looping over every result item 9page count is set to 10)
+      for (var i = 0; i < newResponse.events.event.length; i++) {
+
+      // Setting global variables to event data
+      eventLon = parseInt(newResponse.events.event[i].longitude);
+      eventLat = parseInt(newResponse.events.event[i].latitude);
+      eventTitle = newResponse.events.event[i].title;
+      eventVenue = newResponse.events.event[i].venue_name;
+      eventTime = newResponse.events.event[i].start_time;
+      
       console.log(newResponse);
-      console.log(newResponse.events.event[0].title);
-      console.log(newResponse.events.event[0].latitude);
-      console.log(newResponse.events.event[0].longitude);
-      eventLon = parseInt(newResponse.events.event[0].longitude);
-      eventLat = parseInt(newResponse.events.event[0].latitude);
-      eventTitle = newResponse.events.event[0].title;
+      console.log(newResponse.events.event[i].title);
+      console.log(newResponse.events.event[i].latitude);
+      console.log(newResponse.events.event[i].longitude);
+      console.log(eventVenue = newResponse.events.event[i].venue_name);
+      console.log(eventTime = newResponse.events.event[i].start_time);
+      }
+
     });
 
   initMap();

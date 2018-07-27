@@ -18,6 +18,13 @@
     
     <!-- Google ajax APIs -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
 </head>
 
 <!-- Jumbotron -->
@@ -30,19 +37,19 @@
     <!-- Grid layout -->
     <div class="container">
         <div class="row">
-            <div class="input-group mb-3" id="city-input">
+            <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">City</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="city-input">
             </div>
         </div>
         <div class="row">
-            <div class="input-group mb-3" id="keyword-input">
+            <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Keyword</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="keyword-input">
             </div>
         </div>
         <button type="button" class="btn btn-danger" id="submit-btn">Submit</button>
@@ -76,9 +83,8 @@
             </div>
         </div>
     </div>
-
-    <div id="map">
-</div>
+    <!-- Google Maps Placeholder -->
+    <div id="map"></div>
     
 <!-- Google Maps API URL -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcR_W7jyDowaUcqrhBeW43FkYAxMkSUeU&libraries=places&callback=initMap"></script>
