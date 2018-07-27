@@ -6,15 +6,12 @@ body {
     margin: 0;
     padding: 0;
 
-
-
 }
 
 
 
 #jumbo {
-    
-  
+
     font-family: 'Kaushan Script', cursive; 
     color:  #00f7ff;
     text-shadow: 2px 2px hsl(327, 100%, 50%);
@@ -44,14 +41,14 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-<<<<<<< HEAD
-}
-
-footer {
-
-    color: white;
-=======
     height: 400px;
     background-color: grey;
->>>>>>> master
+
+
 }
+
+
+footer {
+    color: white;
+}
+    
