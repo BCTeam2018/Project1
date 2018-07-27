@@ -1,12 +1,26 @@
 /*SETTING BACKGROUND*/ 
 
+body {
+    background-image: url("../images/1358814.gif");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+
+
+}
+
+
 #jumbo {
-    background-color: black; 
-    border-color: #00f7ff;
+    
+  
     font-family: 'Kaushan Script', cursive; 
     color:  #00f7ff;
-    text-shadow: 2px 2px #ff008c;
+    text-shadow: 2px 2px hsl(327, 100%, 50%);
     font-size: 100px;
+    background: none;
 }
   
 #h1{
@@ -31,6 +45,5 @@
     margin-right: auto;
     width: 50%;
 }
-
 
 
