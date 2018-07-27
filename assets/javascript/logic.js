@@ -4,8 +4,8 @@ var eventLoc = "";
 var eventLat = 30.2672;
 var eventLon = -97.7431;
 
-var eventCity = "";
-var eventKeyword = "";
+//var eventCity = "";
+//var eventKeyword = "";
 
 var eventTitle = "";
 
@@ -14,8 +14,10 @@ var eventVenue;
 
 $("button").on("click", async function () {
   // Capturing using input from 
-  eventCity = $("#city-input").val().trim();
-  eventKeyword = $("#keyword-input").val().trim();
+ var eventCity = $("#city-input").val().trim();
+ var eventKeyword = $("#keyword-input").val().trim();
+ console.log(eventCity);
+ console.log(eventKeyword)
 
   var proxy = "https://cors-anywhere.herokuapp.com/";
   var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL"+ "&q=" + eventKeyword + "&l=" + eventCity  + "&page_size=10";
