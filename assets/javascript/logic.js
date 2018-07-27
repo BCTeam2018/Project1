@@ -1,5 +1,5 @@
 
-// Setting global variables
+// Setting global variables for google maps to use
 var eventLoc = "";
 var eventLat = 30.2672;
 var eventLon = -97.7431;
@@ -8,6 +8,9 @@ var eventCity = "";
 var eventKeyword = "";
 
 var eventTitle = "";
+
+var eventVenue;
+
 
 $("button").on("click", async function () {
   // Capturing using input from 
