@@ -6,20 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>What to Do?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-        crossorigin="anonymous">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
+    
+    <!-- Google ajax APIs -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 </head>
 
+<!-- Jumbotron -->
 <body>
     <div class="jumbotron" id="jumbo">
         <p class="text-center" id="h1">What's Appening?</p>
         <p class="text-center" id="h2">Oh the places we can go!</p>
     </div>
 
+    <!-- Grid layout -->
     <div class="container">
         <div class="row">
             <div class="input-group mb-3" id="city-input">
@@ -38,16 +46,13 @@
             </div>
         </div>
         <button type="button" class="btn btn-danger" id="submit-btn">Submit</button>
-
-
     </div>
     <br>
+    
+    <!-- Card to hold a table of events-->
     <div class="container">
         <div class="row">
-
             <div class="col-md-12">
-
-                
                 <div class="card mb-4">
                     <div class="card-body">
                         <h3 class="card-title">The Events</h3>
@@ -63,22 +68,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <!-- Dynamically generated table rows appear here -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="map">
-                    
-                </div>
-            </div>
-        </div>
-
     </div>
+
+    <div id="map">
+</div>
+    
+<!-- Google Maps API URL -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcR_W7jyDowaUcqrhBeW43FkYAxMkSUeU&libraries=places&callback=initMap"></script>
+
+<!-- Link to custom logic -->
+<script src="./assets/javascript/logic.js"></script>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+       Project 1 Best Group Ever
+    </div>
+</footer>
 
 
     <!-- Footer -->
@@ -94,5 +107,4 @@
 
     <script src="assets/javascript/logic.js"></script>
 </body>
-
 </html>
