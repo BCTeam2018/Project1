@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-  
-=======
 
 // Setting global variables for google maps to use
 var eventLoc = "";
@@ -93,4 +90,3 @@ function createMarker(place) {
     infowindow.open(map, this);
   });
 }
->>>>>>> master
