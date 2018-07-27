@@ -5,16 +5,20 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+
 }
 
 
+
 #jumbo {
+
     font-family: 'Kaushan Script', cursive; 
     color:  #00f7ff;
     text-shadow: 2px 2px hsl(327, 100%, 50%);
     font-size: 100px;
     background: none;
 }
+
   
 #h1{
     font-size: 100px;
@@ -39,10 +43,12 @@ body {
     width: 50%;
     height: 400px;
     background-color: grey;
+
+
 }
+
 
 footer {
     color: white;
 }
     
-

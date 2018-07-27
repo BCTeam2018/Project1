@@ -1,4 +1,3 @@
-
 // Setting global variables for google maps to use
 var eventLoc = "";
 var eventLat = 30.2672;
