@@ -4,6 +4,15 @@ body {
     background-repeat: no-repeat;
 }
 
+body {
+    background-image: url("../images/1358814.gif");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 
 #jumbo {
     font-family: 'Kaushan Script', cursive; 
@@ -40,4 +49,10 @@ body {
 
 footer {
     color: white;
+<<<<<<< HEAD
 }
+=======
+}
+    
+
+>>>>>>> master

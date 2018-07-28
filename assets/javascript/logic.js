@@ -28,11 +28,17 @@ var eventKeyword = "";
 
 // Button event for searching for events
 $("button").on("click", async function () {
+<<<<<<< HEAD
   event.preventDefault();
 
   // Capturing using input from fields
   eventCity = $("#city-input").val().trim();
   eventKeyword = $("#keyword-input").val().trim();
+=======
+  // Capturing using input from 
+  eventCity = $("#city-input").trim();
+  eventKeyword = $("#keyword-input").trim();
+>>>>>>> master
 
   // Setup AJAX call by defining parameters for proxy URL and Eventful API. Proxy handles CORS issue.
   var proxy = "https://cors-anywhere.herokuapp.com/";
