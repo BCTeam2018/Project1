@@ -1,13 +1,26 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDEhMTsOkTgVKsLA5Zmp5R4ZVaIzllYJnU",
-  authDomain: "project1-6d6a1.firebaseapp.com",
-  databaseURL: "https://project1-6d6a1.firebaseio.com",
-  projectId: "project1-6d6a1",
-  storageBucket: "project1-6d6a1.appspot.com",
-  messagingSenderId: "503406212698"
+  apiKey: "AIzaSyCbo-NS3QgPQBncHiJW4RtJY4YagaW-tBQ",
+  authDomain: "pro1-1d70a.firebaseapp.com",
+  databaseURL: "https://pro1-1d70a.firebaseio.com",
+  projectId: "pro1-1d70a",
+  storageBucket: "",
+  messagingSenderId: "773457626806"
 };
 firebase.initializeApp(config);
+
+// Create a variable for the database
+var database = firebase.database();
+
+// Initializing global variables
+var eventLoc = "";
+var eventLat = "";
+var eventLon = "";
+var eventTitle = "";
+var eventVenue = "";
+var eventTime = "";
+var eventVenueAddress = "";
+var events = "";
 
 
 // Initializing global variables
@@ -20,12 +33,10 @@ var eventTime = "";
 var events = "";
 
 
+
 // User input variables
 var eventCity = "";
 var eventKeyword = "";
-
-
-
 
 // Button event for searching for events
 $("button").on("click", async function () {
@@ -36,11 +47,6 @@ $("button").on("click", async function () {
   eventCity = $("#city-input").val().trim();
   eventKeyword = $("#keyword-input").val().trim();
 
-  // Capturing using input from 
- var eventCity = $("#city-input").val().trim();
- var eventKeyword = $("#keyword-input").val().trim();
- console.log(eventCity);
- console.log(eventKeyword)
 
   // Setup AJAX call by defining parameters for proxy URL and Eventful API. Proxy handles CORS issue.
   var proxy = "https://cors-anywhere.herokuapp.com/";
@@ -66,8 +72,16 @@ $("button").on("click", async function () {
       eventVenueAddress = newResponse.events.event[i].venue_address;
       eventTickets = newResponse.events.event[i].tickets;
       eventPrice = newResponse.events.event[i].price;
-    
-      
+
+       // Creates local "temporary" object for holding Event data
+      var newEvent = {
+        Event_Name: eventTitle,
+        Event_Venue: eventVenue,
+        Event_Address: eventVenueAddress,
+        Event_Time: eventTime,
+        };
+      database.ref().push(newEvent);
+
       console.log(newResponse);
       console.log(newResponse.events.event[i].title);
       console.log(newResponse.events.event[i].latitude);
@@ -77,12 +91,31 @@ $("button").on("click", async function () {
       console.log(newResponse.events.event[i].venue_address);
       console.log(newResponse.events.event[i].tickets);
       console.log(newResponse.events.event[i].price);
-      }
-
+      };
+    
+         
     });
 
   initMap();
 })
+
+ // Firebase event for adding Events to the database and a row in the html table when a user searches for events
+ database.ref().on("child_added", function(Snapshot) {
+  console.log(Snapshot.val());
+
+
+// Store everything into a variable.
+var TbleName = Snapshot.val().Event_Name;
+var TblVen = Snapshot.val().Event_Venue;
+var TblAdd = Snapshot.val().Event_Address;
+var TblTime = Snapshot.val().Event_Time;
+
+// Append a new row to the table
+$("#events-table > tbody").append("<tr><td>" + TbleName + "</td><td>" + TblVen + "</td><td>" + TblAdd + "</td><td>" + TblTime + "</td><td>");
+
+ });
+
+
 console.log(eventLat);
 console.log(eventLon);
 
@@ -102,7 +135,7 @@ function initMap() {
   // this is where the map is being sent to the map div for rendering
   map = new google.maps.Map(document.getElementById("map"), {
     center: eventLoc,
-    zoom: 15
+    zoom: 8
   });
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
