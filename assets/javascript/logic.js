@@ -9,7 +9,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
 // Create a variable for the database
 var database = firebase.database();
 
@@ -23,10 +22,21 @@ var eventTime = "";
 var eventVenueAddress = "";
 var events = "";
 
+
+// Initializing global variables
+var eventLoc = "";
+var eventLat = 30.2672;
+var eventLon = -97.7431;
+var eventTitle = "";
+var eventVenue = "";
+var eventTime = "";
+var events = "";
+
+
+
 // User input variables
 var eventCity = "";
 var eventKeyword = "";
-
 
 // Button event for searching for events
 $("button").on("click", async function () {
@@ -36,7 +46,6 @@ $("button").on("click", async function () {
   // Capturing using input from fields
   eventCity = $("#city-input").val().trim();
   eventKeyword = $("#keyword-input").val().trim();
-
 
 
   // Setup AJAX call by defining parameters for proxy URL and Eventful API. Proxy handles CORS issue.
@@ -63,7 +72,7 @@ $("button").on("click", async function () {
       eventVenueAddress = newResponse.events.event[i].venue_address;
       eventTickets = newResponse.events.event[i].tickets;
       eventPrice = newResponse.events.event[i].price;
-    
+
        // Creates local "temporary" object for holding Event data
       var newEvent = {
         Event_Name: eventTitle,
@@ -72,6 +81,7 @@ $("button").on("click", async function () {
         Event_Time: eventTime,
         };
       database.ref().push(newEvent);
+
       console.log(newResponse);
       console.log(newResponse.events.event[i].title);
       console.log(newResponse.events.event[i].latitude);
@@ -84,12 +94,11 @@ $("button").on("click", async function () {
       };
     
          
-
     });
 
   initMap();
 })
-$("#tbodyid").empty();
+
  // Firebase event for adding Events to the database and a row in the html table when a user searches for events
  database.ref().on("child_added", function(Snapshot) {
   console.log(Snapshot.val());
@@ -105,6 +114,7 @@ var TblTime = Snapshot.val().Event_Time;
 $("#events-table > tbody").append("<tr><td>" + TbleName + "</td><td>" + TblVen + "</td><td>" + TblAdd + "</td><td>" + TblTime + "</td><td>");
 
  });
+
 
 console.log(eventLat);
 console.log(eventLon);
