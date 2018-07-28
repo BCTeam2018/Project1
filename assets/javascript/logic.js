@@ -23,6 +23,7 @@ var eventTime = "";
 var eventVenueAddress = "";
 var events = "";
 
+
 // User input variables
 var eventCity = "";
 var eventKeyword = "";
@@ -36,7 +37,6 @@ $("button").on("click", async function () {
   // Capturing using input from fields
   eventCity = $("#city-input").val().trim();
   eventKeyword = $("#keyword-input").val().trim();
-
 
 
   // Setup AJAX call by defining parameters for proxy URL and Eventful API. Proxy handles CORS issue.
@@ -71,7 +71,7 @@ $("button").on("click", async function () {
         Event_Address: eventVenueAddress,
         Event_Time: eventTime,
         };
-      
+
       console.log(newResponse);
       console.log(newResponse.events.event[i].title);
       console.log(newResponse.events.event[i].latitude);
