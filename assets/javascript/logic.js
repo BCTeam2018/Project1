@@ -44,7 +44,7 @@ $("button").on("click", async function () {
 
   // Setup AJAX call by defining parameters for proxy URL and Eventful API. Proxy handles CORS issue.
   var proxy = "https://cors-anywhere.herokuapp.com/";
-  var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL"+ "&q=" + eventKeyword + "&l=" + eventCity  + "&page_size=10";
+  var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL"+ "&q=" + eventKeyword + "&l=" + eventCity  + "&page_size=10&include=tickets,price&sort_order=date&sort_direction=ascending";
   console.log(queryURL);
   
   await $.ajax({
@@ -63,6 +63,10 @@ $("button").on("click", async function () {
       eventTitle = newResponse.events.event[i].title;
       eventVenue = newResponse.events.event[i].venue_name;
       eventTime = newResponse.events.event[i].start_time;
+      eventVenueAddress = newResponse.events.event[i].venue_address;
+      eventTickets = newResponse.events.event[i].tickets;
+      eventPrice = newResponse.events.event[i].price;
+    
       
       console.log(newResponse);
       console.log(newResponse.events.event[i].title);
@@ -70,6 +74,9 @@ $("button").on("click", async function () {
       console.log(newResponse.events.event[i].longitude);
       console.log(eventVenue = newResponse.events.event[i].venue_name);
       console.log(eventTime = newResponse.events.event[i].start_time);
+      console.log(newResponse.events.event[i].venue_address);
+      console.log(newResponse.events.event[i].tickets);
+      console.log(newResponse.events.event[i].price);
       }
 
     });
