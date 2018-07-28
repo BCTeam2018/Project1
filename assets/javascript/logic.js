@@ -20,7 +20,7 @@ $("button").on("click", async function () {
  console.log(eventKeyword)
 
   var proxy = "https://cors-anywhere.herokuapp.com/";
-  var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL"+ "&q=" + eventKeyword + "&l=" + eventCity  + "&page_size=10";
+  var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL"+ "&q=" + eventKeyword + "&l=" + eventCity  + "&page_size=10&include=tickets,price&sort_order=date&sort_direction=ascending";
   console.log(queryURL);
   
   await $.ajax({
@@ -37,6 +37,11 @@ $("button").on("click", async function () {
       eventLon = parseInt(newResponse.events.event[0].longitude);
       eventLat = parseInt(newResponse.events.event[0].latitude);
       eventTitle = newResponse.events.event[0].title;
+      venue = newResponse.events.event[0].venue_name;
+      venueAddress = newResponse.events.event[0].venue_address;
+      //startTime =
+      //popularity =
+      //tickets =
     });
 
   initMap();
