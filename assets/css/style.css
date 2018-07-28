@@ -1,28 +1,14 @@
-#map {
-    height: 50%;
-
-}
-
-html, body {
-    height:100%;
-    margin: 0;
-    padding: 0;
-}
-/*SETTING BACKGROUND*/ 
-
 body {
     background-image: url("../images/1358814.gif");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-
-
-
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 
 #jumbo {
-    
-  
     font-family: 'Kaushan Script', cursive; 
     color:  #00f7ff;
     text-shadow: 2px 2px hsl(327, 100%, 50%);
@@ -51,5 +37,12 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    height: 400px;
+    background-color: grey;
 }
+
+footer {
+    color: white;
+}
+    
 
