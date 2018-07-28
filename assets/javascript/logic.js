@@ -32,51 +32,47 @@ $("button").on("click", async function () {
 
   event.preventDefault();
 
-  // Capturing using input from fields
-  eventCity = $("#city-input").val().trim();
-  eventKeyword = $("#keyword-input").val().trim();
-
   // Capturing using input from 
- var eventCity = $("#city-input").val().trim();
- var eventKeyword = $("#keyword-input").val().trim();
- console.log(eventCity);
- console.log(eventKeyword)
+  var eventCity = $("#city-input").val().trim();
+  var eventKeyword = $("#keyword-input").val().trim();
+  console.log(eventCity);
+  console.log(eventKeyword)
 
   // Setup AJAX call by defining parameters for proxy URL and Eventful API. Proxy handles CORS issue.
   var proxy = "https://cors-anywhere.herokuapp.com/";
-  var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL"+ "&q=" + eventKeyword + "&l=" + eventCity  + "&page_size=10&include=tickets,price&sort_order=date&sort_direction=ascending";
+  var queryURL = "http://api.eventful.com/json/events/search?date=Future&app_key=xDx7HLFpRJgTBLJL" + "&q=" + eventKeyword + "&l=" + eventCity + "&page_size=10&include=tickets,price&sort_order=date&sort_direction=ascending";
   console.log(queryURL);
-  
+
   await $.ajax({
       url: proxy + queryURL,
       method: "GET"
     })
-    .then(function(response) {
+    .then(function (response) {
       let newResponse = JSON.parse(response);
-      
+
       // Looping over every result item 9page count is set to 10)
       for (var i = 0; i < newResponse.events.event.length; i++) {
 
-      // Setting global variables to event data
-      eventLon = parseInt(newResponse.events.event[i].longitude);
-      eventLat = parseInt(newResponse.events.event[i].latitude);
-      eventTitle = newResponse.events.event[i].title;
-      eventVenue = newResponse.events.event[i].venue_name;
-      eventTime = newResponse.events.event[i].start_time;
-      eventVenueAddress = newResponse.events.event[i].venue_address;
-      eventTickets = newResponse.events.event[i].tickets;
-      eventPrice = newResponse.events.event[i].price;
-    
-      
-      console.log(newResponse);
-      console.log(newResponse.events.event[i].title);
-      console.log(newResponse.events.event[i].latitude);
-      console.log(newResponse.events.event[i].longitude);
-      console.log(eventVenue = newResponse.events.event[i].venue_name);
-      console.log(eventTime = newResponse.events.event[i].start_time);
-      console.log(newResponse.events.event[i].venue_address);
-      console.log(newResponse.events.event[i].tickets);
-      console.log(newResponse.events.event[i].price);
+        // Setting global variables to event data
+        eventLon = parseInt(newResponse.events.event[i].longitude);
+        eventLat = parseInt(newResponse.events.event[i].latitude);
+        eventTitle = newResponse.events.event[i].title;
+        eventVenue = newResponse.events.event[i].venue_name;
+        eventTime = newResponse.events.event[i].start_time;
+        eventVenueAddress = newResponse.events.event[i].venue_address;
+        eventTickets = newResponse.events.event[i].tickets;
+        eventPrice = newResponse.events.event[i].price;
+
+
+        console.log(newResponse);
+        console.log(newResponse.events.event[i].title);
+        console.log(newResponse.events.event[i].latitude);
+        console.log(newResponse.events.event[i].longitude);
+        console.log(eventVenue = newResponse.events.event[i].venue_name);
+        console.log(eventTime = newResponse.events.event[i].start_time);
+        console.log(newResponse.events.event[i].venue_address);
+        console.log(newResponse.events.event[i].tickets);
+        console.log(newResponse.events.event[i].price);
       }
 
     });
